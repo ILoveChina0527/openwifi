@@ -93,25 +93,11 @@ static u8 ieee_hdr_rts[] =
 };
 
 // Generate random string
-void gen_rand_str(int size, char *rand_char)
+void gen_rand_str(int size, char *char)
 {
-	int i, randNum = 0;
-
-	// Seed the random number generator with packet size
-	srand(size);
 	for (i = 0; i < size; i++)
 	{
-		// First, pick a number between 0 and 25.
-		randNum = 255 * (rand() / (RAND_MAX + 1.0));
-
-		if(randNum == 0)
-		{
-			i--;
-			continue;
-		}
-
-		// Type cast to character
-		rand_char[i] = (char) randNum;
+		char[i] = (char) char[i];
 	}
 	rand_char[i] = '\0';
 }
